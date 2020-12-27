@@ -1,0 +1,76 @@
+<button mat-raised-button  (click)="onCreate()">
+    <mat-icon>add</mat-icon>Create Product
+  </button>
+
+
+
+  <mat-accordion class="example-headers-align"  cdkDropList 
+  #unassignedList="cdkDropList"
+        [cdkDropListData]="service.products"
+			
+        (cdkDropListDropped)="drop($event)">
+    <mat-expansion-panel cdkDrag hideToggle *ngFor="let prod of service.products">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{prod.Name}}
+        </mat-panel-title>
+        <mat-panel-description>
+         
+       <div class="example-action-buttons">
+        <mat-slide-toggle #slide >
+            <mat-chip>{{slide.checked?'Approved':'Not Approved'}}</mat-chip>
+            
+       </mat-slide-toggle>
+       
+       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onEdit(prod)">
+          <mat-icon>create</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="onDelete(prod._id,productForm)">
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+    
+      </mat-menu>
+    </div>
+      
+
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      
+          <div>
+          <strong>Brand: {{prod.Brand}}</strong>  
+           
+           </div>
+           <div>
+            <strong>Category: {{prod.Category}}</strong> 
+          
+          </div>
+          <div>
+            <strong>Material: {{prod.Material}}</strong> 
+          
+          </div>
+          <div>
+            <strong>Care: {{prod.Care}}</strong> 
+          
+          </div>
+          <div>
+            <strong>Color: {{prod.Color}}</strong> 
+          
+          </div>
+          <div>
+            <strong>Size: {{prod.Size}}</strong> 
+          
+          </div>
+          
+
+          
+      
+    </mat-expansion-panel>
+    
+  </mat-accordion>
+  

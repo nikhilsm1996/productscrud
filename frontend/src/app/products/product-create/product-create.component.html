@@ -1,0 +1,137 @@
+<mat-toolbar>
+    <h2>Create / Modify Product</h2>
+   
+    <span class="fill-remaining-space"></span>
+
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+
+  
+    <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+        <mat-grid-list cols="2" rowHeight="400px">
+        <mat-grid-tile>
+            
+      <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="service.selectedProduct._id">
+      <div class="controles-container">
+    <mat-form-field>
+          <input type="text" matInput  name="Name" #name="ngModel" [(ngModel)]="service.selectedProduct.Name" placeholder="Enter Product name" required>
+        
+        </mat-form-field>
+    
+      <mat-form-field>
+          <input type="text" matInput name="Status" #name="ngModel" [(ngModel)]="service.selectedProduct.Status" placeholder="Completed/Pending">
+          
+        </mat-form-field>
+        
+      <mat-form-field>
+          <input type="text"  matInput  name="Price" #name="ngModel" [(ngModel)]="service.selectedProduct.Price" placeholder="Enter Price">
+          
+        </mat-form-field>
+        
+    <mat-form-field>
+    
+          <input type="text" matInput name="Brand" #name="ngModel" [(ngModel)]="service.selectedProduct.Brand" placeholder="Enter Brand">
+          
+    </mat-form-field>
+   
+        
+</div>
+        </mat-grid-tile>
+
+    
+    <mat-grid-tile>
+        <div class="controles-container">
+          
+            <mat-form-field>
+                <input type="text" matInput  name="Care" #name="ngModel" [(ngModel)]="service.selectedProduct.Care" placeholder="Enter Care">
+                
+              </mat-form-field>
+      
+              <mat-form-field>
+                <input type="text" matInput name="Category" #name="ngModel" [(ngModel)]="service.selectedProduct.Category" placeholder="Enter Category">
+                
+              </mat-form-field>
+              <mat-form-field>
+          <input type="text" matInput name="Color" #name="ngModel" [(ngModel)]="service.selectedProduct.Color" placeholder="Enter Color">
+          
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput name="Material" #name="ngModel" [(ngModel)]="service.selectedProduct.Material" placeholder="Enter Material">
+          
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput name="Size" #name="ngModel" [(ngModel)]="service.selectedProduct.Size" placeholder="Enter Size">
+          
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date">
+              <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+          
+        
+      
+      
+      <div class="button-row">
+          <button mat-raised-button color="warn"  type="button" (click)="resetForm(productForm)">Reset</button>
+          <button mat-raised-button color="primary"   type="submit" [disabled]="!productForm.valid">Submit</button>
+        </div>
+</div>
+        </mat-grid-tile>
+    </mat-grid-list>
+      
+    </form>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
